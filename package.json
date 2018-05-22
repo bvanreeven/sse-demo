@@ -1,0 +1,11 @@
+{
+  "name": "sse-colors",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^10.1.2",
+    "tslint": "^5.10.0",
+    "typescript": "^2.8.3"
+  }
+}
