@@ -4,8 +4,20 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@types/koa": "^2.0.45",
+    "@types/koa-mount": "^3.0.1",
+    "@types/koa-static": "^4.0.0",
     "@types/node": "^10.1.2",
     "tslint": "^5.10.0",
     "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "koa": "^2.5.1",
+    "koa-mount": "^3.0.0",
+    "koa-static": "^4.0.3"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node server.js"
   }
 }
