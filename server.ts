@@ -16,7 +16,13 @@ app.use(mount("/events", ctx => {
 
   const rnd = (max: number) => Math.floor(Math.random() * max);
 
-  const interval = setInterval(() => {
+  let sending = true;
+
+  const sendPixel = () => {
+    if (!sending) {
+      return;
+    }
+
     const row = rnd(12);
     const col = rnd(12);
 
@@ -25,10 +31,14 @@ app.use(mount("/events", ctx => {
     const blue = rnd(256);
 
     send(JSON.stringify({ row, col, red, green, blue }));
-  }, 1);
+
+    setImmediate(sendPixel);
+  };
+
+  setImmediate(sendPixel);
 
   const stop = () => {
-    clearInterval(interval);
+    sending = false;
     ctx.res.end();
   };
 

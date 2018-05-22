@@ -18,6 +18,8 @@
           }
         }
 
+        const startTime = Date.now();
+
         const processedHeader = document.getElementById("processedHeader");
         let counter = 0;
 
@@ -28,8 +30,13 @@
           const colSpan = document.getElementById(`${data.row}_${data.col}`);
           colSpan.style = `background-color: rgb(${data.red},${data.green},${data.blue})`;
 
-          processedHeader.textContent = `Processed ${++counter} events`;
+          counter++;
         };
+
+        setInterval(() => {
+          const currentTime = Date.now();
+          processedHeader.textContent = `Processed ${counter} events in ${currentTime - startTime} ms`;
+        }, 100);
       }
 
       window.onload = init;
