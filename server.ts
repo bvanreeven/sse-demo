@@ -14,9 +14,18 @@ app.use(mount("/events", ctx => {
     stream.write(`data: ${ data }\n\n`);
   };
 
+  const rnd = (max: number) => Math.floor(Math.random() * max);
+
   const interval = setInterval(() => {
-    send("Je moeder!");
-  }, 100);
+    const row = rnd(12);
+    const col = rnd(12);
+
+    const red = rnd(256);
+    const green = rnd(256);
+    const blue = rnd(256);
+
+    send(JSON.stringify({ row, col, red, green, blue }));
+  }, 1);
 
   const stop = () => {
     clearInterval(interval);
